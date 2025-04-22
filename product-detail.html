@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- header section starts  -->
+    <header class="header">
+        <a href="home.html" class="logo"> <i class="ri-store-2-line"></i> FurnishMe </a>
+
+        <form action="#" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="ri-search-line"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="ri-menu-line"></div>
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="cart-btn" class="ri-shopping-cart-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+        </div>
+    </header>
+    <!-- header section ends  -->
+
+    <!-- closer btn  -->
+    <div id="closer" class="ri-close-line"></div>
+
+    <!-- navbar start  -->
+    <nav class="navbar">
+        <a href="home.html">home</a>
+        <a href="shop.html">shop</a>
+        <a href="about.html">about</a>
+        <a href="team.html">team</a>
+        <a href="blog.html">blog</a>
+        <a href="contact.html">contact</a>
+    </nav>
+    <!-- navbar end  -->
+
+    <!-- product detail section starts -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="" alt="Product Image" id="product-image">
+                </div>
+                <div class="product-info">
+                    <h1 id="product-name"></h1>
+                    <div class="product-price">
+                        <span id="product-price"></span>
+                    </div>
+                    <div class="product-description">
+                        <p id="product-description"></p>
+                    </div>
+                    <div class="product-actions">
+                        <div class="quantity">
+                            <button id="decrease-qty">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button id="increase-qty">+</button>
+                        </div>
+                        <div class="buttons">
+                            <button id="add-to-cart" class="btn">
+                                <i class="ri-shopping-cart-line"></i> Add to Cart
+                            </button>
+                            <button id="add-to-wishlist" class="btn">
+                                <i class="ri-heart-line"></i> Add to Wishlist
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars" id="product-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span id="rating-count">(50)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product detail section ends -->
+
+    <!-- footer section starts -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="home.html"> <i class="ri-arrow-right-line"></i> home </a>
+                <a href="shop.html"> <i class="ri-arrow-right-line"></i> shop </a>
+                <a href="about.html"> <i class="ri-arrow-right-line"></i> about </a>
+                <a href="team.html"> <i class="ri-arrow-right-line"></i> team </a>
+                <a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a>
+                <a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a>
+            </div>
+            <!-- Other footer sections remain the same -->
+        </div>
+    </section>
+    <!-- footer section ends -->
+
+    <!-- custom js files -->
+    <script src="js/script.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

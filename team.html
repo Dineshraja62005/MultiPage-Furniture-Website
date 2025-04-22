@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team</title>
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+        <a href="home.html" class="logo"> <i class="ri-store-2-line"></i> FurnishMe </a>
+
+        <form action="#" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="ri-search-line"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="ri-menu-line"></div>
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="cart-btn" class="ri-shopping-cart-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+        </div>
+    </header>
+
+    <!-- header section ends  -->
+
+
+    <!-- closer btn  -->
+
+    <div id="closer" class="ri-close-line"></div>
+
+    <!-- navbar start  -->
+
+    <nav class="navbar">
+        <a href="home.html">home</a>
+        <a href="shop.html">shop</a>
+        <a href="about.html">about</a>
+        <a href="team.html">team</a>
+        <a href="blog.html">blog</a>
+        <a href="contact.html">contact</a>
+    </nav>
+
+    <!-- navbar end  -->
+
+
+    <!-- shopping cart start  -->
+
+    <div class="shopping-cart">
+
+        <div class="box">
+            <i class="ri-close-line close-icon"></i>
+            <img src="image/cart-img-1.jpg" alt="">
+            <div class="content">
+                <h3>modern furniture</h3>
+                <span class="quantity"> 1 </span>
+                <span class="multiply"> x </span>
+                <span class="price"> $140.00 </span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="ri-close-line close-icon"></i>
+            <img src="image/cart-img-2.jpg" alt="">
+            <div class="content">
+                <h3>modern furniture</h3>
+                <span class="quantity"> 1 </span>
+                <span class="multiply"> x </span>
+                <span class="price"> $140.00 </span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="ri-close-line close-icon"></i>
+            <img src="image/cart-img-3.jpg" alt="">
+            <div class="content">
+                <h3>modern furniture</h3>
+                <span class="quantity"> 1 </span>
+                <span class="multiply"> x </span>
+                <span class="price"> $140.00 </span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="ri-close-line close-icon"></i>
+            <img src="image/cart-img-4.jpg" alt="">
+            <div class="content">
+                <h3>modern furniture</h3>
+                <span class="quantity"> 1 </span>
+                <span class="multiply"> x </span>
+                <span class="price"> $140.00 </span>
+            </div>
+        </div>
+
+        <h3 class="total"> total : <span>$560.00</span> </h3>
+        <a href="#" class="btn">checkout cart</a>
+
+    </div>
+
+    <!-- shopping cart end  -->
+
+
+<!-- login form start  -->
+<div class="login-form">
+    <div class="form-container">
+        <!-- Login Form -->
+        <form id="loginForm" class="active-form">
+            <h3>Login</h3>
+            <div id="loginMessage" class="message"></div>
+            <input type="email" name="email" placeholder="Enter your email" class="box" required>
+            <input type="password" name="password" placeholder="Enter your password" class="box" required>
+            <div class="remember">
+                <input type="checkbox" name="remember" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <input type="submit" value="Login" class="btn">
+            <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
+            <p>Forgot password? <a href="#" id="showReset">Reset password</a></p>
+        </form>
+
+        <!-- Registration Form -->
+        <form id="registerForm" class="hidden-form">
+            <h3>Create Account</h3>
+            <div id="registerMessage" class="message"></div>
+            <input type="text" name="name" placeholder="Enter your full name" class="box" required>
+            <input type="email" name="email" placeholder="Enter your email" class="box" required>
+            <input type="password" name="password" placeholder="Create a password" class="box" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm password" class="box" required>
+            <div class="terms">
+                <input type="checkbox" name="terms" id="terms-agree" required>
+                <label for="terms-agree">I agree to the <a href="#">terms and conditions</a></label>
+            </div>
+            <input type="submit" value="Register" class="btn">
+            <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </form>
+
+        <!-- Password Reset Form -->
+        <form id="resetForm" class="hidden-form">
+            <h3>Reset Password</h3>
+            <div id="resetMessage" class="message"></div>
+            <p class="form-info">Enter your email address to receive password reset instructions.</p>
+            <input type="email" name="resetEmail" placeholder="Enter your email" class="box" required>
+            <input type="submit" value="Reset Password" class="btn">
+            <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
+        </form>
+    </div>
+</div>
+<!-- login form end  -->
+
+    <!-- heading section start -->
+
+    <section class="heading">
+        <h3>our shop</h3>
+        <p> <a href="home.html">home</a> / <span>team</span> </p>
+    </section>
+
+    <!-- heading section end -->
+
+
+    <!-- team section start -->
+
+    <section class="team">
+
+        <h1 class="title"> <span>our team</span> <a href="#">view all >></a> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-1.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-2.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-3.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-4.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-5.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="share">
+                    <a href="#" class="ri-facebook-fill"></a>
+                    <a href="#" class="ri-twitter-fill"></a>
+                    <a href="#" class="ri-pinterest-fill"></a>
+                    <a href="#" class="ri-instagram-fill"></a>
+                </div>
+                <div class="image">
+                    <img src="image/team-6.jpg" alt="">
+                </div>
+                <div class="user">
+                    <h3>john deo</h3>
+                    <span>designer</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- team section end -->
+
+
+
+
+
+
+    <!-- footer section start  -->
+    <section class="footer">
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="home.html"> <i class="ri-arrow-right-line"></i> home </a>
+                <a href="shop.html"> <i class="ri-arrow-right-line"></i> shop </a>
+                <a href="about.html"> <i class="ri-arrow-right-line"></i> about </a>
+                <a href="team.html"> <i class="ri-arrow-right-line"></i> team </a>
+                <a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a>
+                <a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my order </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my wishlist </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my account </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my favorite </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> terms of user </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="ri-facebook-fill"></i> facebook </a>
+                <a href="#"> <i class="ri-twitter-fill"></i> twitter </a>
+                <a href="#"> <i class="ri-instagram-fill"></i> instagram </a>
+                <a href="#"> <i class="ri-linkedin-box-fill"></i> linkedin </a>
+                <a href="#"> <i class="ri-pinterest-fill"></i> pinterest </a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <form action="#">
+                    <input type="email" name="" placeholder="enter your email" id="">
+                    <input type="submit" value="subscribe" class="btn">
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="credit">
+        created by Code with Aarzoo | all rights reserved!
+    </section>
+    <!-- footer section end  -->
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+    
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+
+    <!-- auth system js -->
+    <script src="js/auth.js"></script>
+    
+    <!-- login form js -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
