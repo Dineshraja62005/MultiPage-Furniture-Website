@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showForm.classList.remove('hidden-form');
         hideForm1.classList.add('hidden-form');
         hideForm2.classList.add('hidden-form');
+        
     }
 
     // Event Listeners for Form Switching
