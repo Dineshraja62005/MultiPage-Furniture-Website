@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'woodstory';
 $username = 'root';  // default for most local setups
-$password = 'root';      // default for most local setups
+$password = '';      // default for most local setups
 
 try {
     // Create PDO connection

@@ -1,4 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+header('Content-Type: application/json');
+require 'db_connect.php';
+
 session_start();
 header('Content-Type: application/json');
 require 'db_connect.php';
@@ -71,6 +78,7 @@ try {
         'message' => 'Account created successfully'
     ]);
 } catch(PDOException $e) {
+    file_put_contents('php/register_debug.log', "ERROR: " . $e->getMessage() . "\n", FILE_APPEND);
     echo json_encode([
         'success' => false, 
         'message' => 'Registration failed: ' . $e->getMessage()
