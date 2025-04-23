@@ -16,6 +16,9 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- cart styles -->
+    <link rel="stylesheet" href="css/cart-styles.css">    
+
 </head>
 
 <body>
@@ -61,59 +64,13 @@
 
     <!-- shopping cart start  -->
 
-    <div class="shopping-cart">
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-1.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
+        <div class="shopping-cart">
+            <!-- Cart items will be dynamically added here by cart.js -->
+            <h3 class="total"> total : <span>$0.00</span> </h3>
+            <a href="cart.html" class="btn">checkout cart</a>
         </div>
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-2.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-3.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-4.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <h3 class="total"> total : <span>$560.00</span> </h3>
-        <a href="#" class="btn">checkout cart</a>
-
-    </div>
-
-    <!-- shopping cart end  -->
-
+        
+    <!-- shopping cart end  -->  
 
 <!-- login form start  -->
 <div class="login-form">
@@ -207,9 +164,9 @@
 
             <div class="box" data-product-id="spoon-chair">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-1.png" alt="Spoon Design Chair">
@@ -230,9 +187,9 @@
 
             <div class="box" data-product-id="bunny-sofa">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-2.png" alt="Bunny Cushion Sofa">
@@ -253,9 +210,9 @@
 
             <div class="box" data-product-id="coconut-sofa">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-3.png" alt="Coconut Cushion Sofa">
@@ -276,9 +233,9 @@
 
             <div class="box" data-product-id="modern-chair">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-4.png" alt="Modern Wooden Chair">
@@ -299,9 +256,9 @@
 
             <div class="box" data-product-id="bear-sofa">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-5.png" alt="Bear Cushion Sofa">
@@ -322,9 +279,9 @@
 
             <div class="box" data-product-id="rainbow-chair">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-6.png" alt="Rainbow Rocking Chair">
@@ -345,9 +302,9 @@
 
             <div class="box" data-product-id="t-handle-chair">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-7.png" alt="T-Handle Chair">
@@ -368,9 +325,9 @@
 
             <div class="box" data-product-id="pouf-chair">
                 <div class="icons">
-                    <a href="#" class="ri-shopping-cart-line"></a>
+                    <a href="javascript:void(0)" class="ri-shopping-cart-line add-to-cart"></a>
                     <a href="#" class="ri-heart-line"></a>
-                    <a href="#" class="ri-eye-line"></a>
+                    <a href="javascript:void(0)" class="ri-eye-line"></a>
                 </div>
                 <div class="image">
                     <img src="image/product-8.png" alt="Modern Pouf Chair">
@@ -388,7 +345,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
     </section>
@@ -453,6 +409,20 @@
     <!-- custom js file link  -->
     <script src="js/script.js"></script>
 
+    <!-- auth system js -->
+    <script src="js/auth.js"></script>
+    
+    <!-- login form js -->
+    <script src="js/login.js"></script>
+
+    <script src="js/product-links.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+
+    <!-- cart system js -->
+    <script src="js/cart.js"></script>
+    
     <!-- auth system js -->
     <script src="js/auth.js"></script>
     

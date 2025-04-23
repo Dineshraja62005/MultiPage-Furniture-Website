@@ -1,6 +1,7 @@
 // Product details data
 const productData = {
     'spoon-chair': {
+        id: 'spoon-chair',
         name: 'Spoon Design Chair',
         price: 140.00,
         image: 'image/product-1.png', // Update this path to your spoon chair image
@@ -9,6 +10,7 @@ const productData = {
         rating: 5
     },
     'bunny-sofa': {
+        id: 'bunny-sofa',
         name: 'Bunny Cushion Sofa',
         price: 140.00,
         image: 'image/product-2.png', // Update with bunny sofa image
@@ -17,6 +19,7 @@ const productData = {
         rating: 5
     },
     'coconut-sofa': {
+        id: 'coconut-sofa',
         name: 'Coconut Cushion Sofa',
         price: 140.00,
         image: 'image/product-3.png', // Update with coconut sofa image
@@ -25,6 +28,7 @@ const productData = {
         rating: 5
     },
     'modern-chair': {
+        id: 'modern-chair',
         name: 'Modern Wooden Chair',
         price: 140.00,
         image: 'image/product-4.png', // Update with modern chair image
@@ -33,6 +37,7 @@ const productData = {
         rating: 5
     },
     'bear-sofa': {
+        id: 'bear-sofa',
         name: 'Bear Cushion Sofa',
         price: 140.00, 
         image: 'image/product-5.png', // Update with bear sofa image
@@ -41,6 +46,7 @@ const productData = {
         rating: 5
     },
     'rainbow-chair': {
+        id: 'rainbow-chair',
         name: 'Rainbow Rocking Chair',
         price: 140.00,
         image: 'image/product-6.png', // Update with rainbow chair image
@@ -49,6 +55,7 @@ const productData = {
         rating: 5
     },
     't-handle-chair': {
+        id: 't-handle-chair',
         name: 'T-Handle Chair',
         price: 140.00,
         image: 'image/product-7.png', // Update with T-handle chair image
@@ -57,6 +64,7 @@ const productData = {
         rating: 5
     },
     'pouf-chair': {
+        id: 'pouf-chair',
         name: 'Modern Pouf Chair',
         price: 140.00,
         image: 'image/product-8.png', // Update with pouf chair image
@@ -65,102 +73,6 @@ const productData = {
         rating: 5
     }
 };
-
-// Cart management
-class CartManager {
-    constructor() {
-        // Initialize cart from localStorage or as empty array
-        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
-    }
-
-    // Add item to cart
-    addToCart(product, quantity) {
-        // Check if product already exists in cart
-        const existingProductIndex = this.cart.findIndex(
-            item => item.name === product.name
-        );
-
-        if (existingProductIndex > -1) {
-            // If product exists, update quantity
-            this.cart[existingProductIndex].quantity += quantity;
-        } else {
-            // If product is new, add to cart
-            this.cart.push({
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: quantity
-            });
-        }
-
-        // Save updated cart to localStorage
-        this.saveCart();
-
-        // Update cart display
-        this.updateCartDisplay();
-    }
-
-    // Remove item from cart
-    removeFromCart(productName) {
-        this.cart = this.cart.filter(item => item.name !== productName);
-        this.saveCart();
-        this.updateCartDisplay();
-    }
-
-    // Save cart to localStorage
-    saveCart() {
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-    }
-
-    // Update cart display in the shopping cart section
-    updateCartDisplay() {
-        const cartContainer = document.querySelector('.shopping-cart');
-        const cartTotalSpan = cartContainer.querySelector('.total span');
-        const cartBoxContainer = cartContainer.querySelector('.box-container');
-
-        // Clear existing cart items
-        cartBoxContainer.innerHTML = '';
-
-        // Calculate total
-        let total = 0;
-
-        // Populate cart items
-        this.cart.forEach(item => {
-            const cartBox = document.createElement('div');
-            cartBox.classList.add('box');
-            
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-
-            cartBox.innerHTML = `
-                <i class="ri-close-line close-icon" data-name="${item.name}"></i>
-                <img src="${item.image}" alt="${item.name}">
-                <div class="content">
-                    <h3>${item.name}</h3>
-                    <span class="quantity">${item.quantity}</span>
-                    <span class="multiply">x</span>
-                    <span class="price">$${item.price.toFixed(2)}</span>
-                </div>
-            `;
-
-            cartBoxContainer.appendChild(cartBox);
-        });
-
-        // Update total
-        cartTotalSpan.textContent = `$${total.toFixed(2)}`;
-
-        // Add event listeners to close icons
-        cartBoxContainer.querySelectorAll('.close-icon').forEach(closeIcon => {
-            closeIcon.addEventListener('click', (e) => {
-                const productName = e.target.dataset.name;
-                this.removeFromCart(productName);
-            });
-        });
-    }
-}
-
-// Initialize cart manager
-const cartManager = new CartManager();
 
 // Function to get URL parameter
 function getUrlParameter(name) {
@@ -213,11 +125,13 @@ function populateProductDetails() {
     document.getElementById('add-to-cart').addEventListener('click', () => {
         const quantity = parseInt(quantityInput.value);
         
-        // Add to cart
-        cartManager.addToCart(product, quantity);
-
-        // Show success message
-        alert(`Added ${quantity} ${product.name}(s) to cart`);
+        // Use new cart manager if available
+        if (window.cartManager) {
+            window.cartManager.addToCart(product, quantity);
+        } else {
+            // Fallback to alert if cart manager not loaded
+            alert(`Added ${quantity} ${product.name}(s) to cart`);
+        }
     });
 
     // Add to wishlist functionality (placeholder)
@@ -226,11 +140,8 @@ function populateProductDetails() {
     });
 }
 
-// Initial cart display on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     // Populate product details
     populateProductDetails();
-
-    // Initialize cart display
-    cartManager.updateCartDisplay();
 });

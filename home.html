@@ -16,6 +16,9 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- cart styles -->
+    <link rel="stylesheet" href="css/cart-styles.css">
+
 </head>
 
 <body>
@@ -61,60 +64,15 @@
 
     <!-- shopping cart start  -->
 
-    <div class="shopping-cart">
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-1.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
+        <div class="shopping-cart">
+            <!-- Cart items will be dynamically added here by cart.js -->
+            <h3 class="total"> total : <span>$0.00</span> </h3>
+            <a href="cart.html" class="btn">checkout cart</a>
         </div>
+        
+    <!-- shopping cart end  -->    
 
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-2.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-3.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <div class="box">
-            <i class="ri-close-line close-icon"></i>
-            <img src="image/cart-img-4.jpg" alt="">
-            <div class="content">
-                <h3>modern furniture</h3>
-                <span class="quantity"> 1 </span>
-                <span class="multiply"> x </span>
-                <span class="price"> $140.00 </span>
-            </div>
-        </div>
-
-        <h3 class="total"> total : <span>$560.00</span> </h3>
-        <a href="#" class="btn">checkout cart</a>
-
-    </div>
-
-    <!-- shopping cart end  -->
-
-<!-- login form start  -->
+    <!-- login form start  -->
 <div class="login-form">
     <div class="form-container">
         <!-- Login Form -->
@@ -343,6 +301,19 @@
     
     <!-- login form js -->
     <script src="js/login.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+    
+    <!-- cart system js -->
+    <script src="js/cart.js"></script>
+
+    <!-- auth system js -->
+    <script src="js/auth.js"></script>
+    
+    <!-- login form js -->
+    <script src="js/login.js"></script>
+
 
 </body>
 

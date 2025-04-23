@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - WoodStory</title>
+
+    <!-- remix icon cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+        <a href="home.html" class="logo"> <i class="ri-store-2-line"></i> WoodStory </a>
+
+        <form action="#" class="search-form">
+            <input type="search" placeholder="search here..." id="search-box">
+            <label for="search-box" class="ri-search-line"></label>
+        </form>
+
+        <div class="icons">
+            <div id="menu-btn" class="ri-menu-line"></div>
+            <div id="search-btn" class="ri-search-line"></div>
+            <div id="cart-btn" class="ri-shopping-cart-line"></div>
+            <div id="login-btn" class="ri-user-line"></div>
+        </div>
+    </header>
+
+    <!-- header section ends  -->
+
+
+    <!-- closer btn  -->
+
+    <div id="closer" class="ri-close-line"></div>
+
+    <!-- navbar start  -->
+
+    <nav class="navbar">
+        <a href="home.html">home</a>
+        <a href="shop.html">shop</a>
+        <a href="about.html">about</a>
+        <a href="team.html">team</a>
+        <a href="blog.html">blog</a>
+        <a href="contact.html">contact</a>
+    </nav>
+
+    <!-- navbar end  -->
+
+
+    <!-- shopping cart start  -->
+
+    <div class="shopping-cart">
+        <!-- Cart items will be added dynamically -->
+        <h3 class="total"> total : <span>$0.00</span> </h3>
+        <a href="cart.html" class="btn">checkout cart</a>
+    </div>
+
+    <!-- shopping cart end  -->
+
+
+    <!-- login form start  -->
+    <div class="login-form">
+        <div class="form-container">
+            <!-- Login Form -->
+            <form id="loginForm" class="active-form">
+                <h3>Login</h3>
+                <div id="loginMessage" class="message"></div>
+                <input type="email" name="email" placeholder="Enter your email" class="box" required>
+                <input type="password" name="password" placeholder="Enter your password" class="box" required>
+                <div class="remember">
+                    <input type="checkbox" name="remember" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <input type="submit" value="Login" class="btn">
+                <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
+                <p>Forgot password? <a href="#" id="showReset">Reset password</a></p>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="hidden-form">
+                <h3>Create Account</h3>
+                <div id="registerMessage" class="message"></div>
+                <input type="text" name="name" placeholder="Enter your full name" class="box" required>
+                <input type="email" name="email" placeholder="Enter your email" class="box" required>
+                <input type="password" name="password" placeholder="Create a password" class="box" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm password" class="box" required>
+                <div class="terms">
+                    <input type="checkbox" name="terms" id="terms-agree" required>
+                    <label for="terms-agree">I agree to the <a href="#">terms and conditions</a></label>
+                </div>
+                <input type="submit" value="Register" class="btn">
+                <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </form>
+
+            <!-- Password Reset Form -->
+            <form id="resetForm" class="hidden-form">
+                <h3>Reset Password</h3>
+                <div id="resetMessage" class="message"></div>
+                <p class="form-info">Enter your email address to receive password reset instructions.</p>
+                <input type="email" name="resetEmail" placeholder="Enter your email" class="box" required>
+                <input type="submit" value="Reset Password" class="btn">
+                <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- login form end  -->
+
+
+    <!-- heading section start -->
+
+    <section class="heading">
+        <h3>shopping cart</h3>
+        <p> <a href="home.html">home</a> / <span>cart</span> </p>
+    </section>
+
+    <!-- heading section end -->
+
+
+    <!-- Cart Detail Section Start -->
+    <section class="cart-detail">
+        <div class="container">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <h2>Your Shopping Cart</h2>
+                    <button id="clear-cart" class="btn-outline">Clear Cart</button>
+                </div>
+                
+                <div id="cart-items">
+                    <!-- Cart items will be loaded here dynamically -->
+                </div>
+                
+                <div class="empty-cart-message" style="display: none;">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Browse our collection and discover amazing furniture for your home.</p>
+                    <a href="shop.html" class="btn">Continue Shopping</a>
+                </div>
+
+                <div class="cart-footer">
+                    <div class="continue-shopping">
+                        <a href="shop.html" class="btn-outline">
+                            <i class="ri-arrow-left-line"></i> Continue Shopping
+                        </a>
+                    </div>
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="cart-shipping">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                        <a href="checkout.html" id="checkout-btn" class="btn">
+                            Proceed to Checkout <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cart Detail Section End -->
+
+
+    <!-- footer section start  -->
+    <section class="footer">
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="home.html"> <i class="ri-arrow-right-line"></i> home </a>
+                <a href="shop.html"> <i class="ri-arrow-right-line"></i> shop </a>
+                <a href="about.html"> <i class="ri-arrow-right-line"></i> about </a>
+                <a href="team.html"> <i class="ri-arrow-right-line"></i> team </a>
+                <a href="blog.html"> <i class="ri-arrow-right-line"></i> blog </a>
+                <a href="contact.html"> <i class="ri-arrow-right-line"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my order </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my wishlist </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my account </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> my favorite </a>
+                <a href="#"> <i class="ri-arrow-right-line"></i> terms of user </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="ri-facebook-fill"></i> facebook </a>
+                <a href="#"> <i class="ri-twitter-fill"></i> twitter </a>
+                <a href="#"> <i class="ri-instagram-fill"></i> instagram </a>
+                <a href="#"> <i class="ri-linkedin-box-fill"></i> linkedin </a>
+                <a href="#"> <i class="ri-pinterest-fill"></i> pinterest </a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <form action="#">
+                    <input type="email" name="" placeholder="enter your email" id="">
+                    <input type="submit" value="subscribe" class="btn">
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="credit">
+        created by Code with Aarzoo | all rights reserved!
+    </section>
+    <!-- footer section end  -->
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+    
+    <!-- cart js -->
+    <script src="js/cart.js"></script>
+    
+    <!-- cart page specific js -->
+    <script src="js/cart-page.js"></script>
+    
+    <!-- auth system js -->
+    <script src="js/auth.js"></script>
+    
+    <!-- login form js -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

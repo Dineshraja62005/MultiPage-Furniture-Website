@@ -1,6 +1,6 @@
 // Product links and category filtering functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all eye icons
+    // Select all eye icons for view product
     const viewButtons = document.querySelectorAll('.ri-eye-line');
     
     viewButtons.forEach((button) => {
@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', handleProductView);
     });
 
+// Select all cart icons for add to cart
+const cartButtons = document.querySelectorAll('.products .box .icons .ri-shopping-cart-line');
+    
+cartButtons.forEach((button) => {
+    // Skip if button is the cart icon in header
+    if (button.id === 'cart-btn') return;
+    
+    button.addEventListener('click', handleAddToCart);
+});
+    // Handle view product details
     function handleProductView(event) {
         // Prevent default link behavior
         event.preventDefault();
@@ -34,6 +44,50 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // Navigate to product detail page
         window.location.href = `product-detail.html?product=${productId}`;
+    }
+
+    // Handle add to cart
+    function handleAddToCart(event) {
+        // Prevent default link behavior
+        event.preventDefault();
+        event.stopPropagation();
+    
+        // Find the closest parent box
+        const productBox = event.target.closest('.box');
+        
+        if (!productBox) {
+            console.error('No product box found');
+            return;
+        }
+    
+        // Get the product details
+        const productId = productBox.dataset.productId;
+        const productName = productBox.querySelector('.content h3').textContent;
+        const productPrice = parseFloat(productBox.querySelector('.content .price').textContent.replace('$', ''));
+        const productImage = productBox.querySelector('.image img').src;
+        
+        if (!productId || !productName || isNaN(productPrice)) {
+            console.error('Invalid product data');
+            return;
+        }
+        
+        // Create product object
+        const product = {
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+        
+        console.log('Adding to cart:', product);
+        
+        // Add to cart using cart manager if available
+        if (window.cartManager) {
+            window.cartManager.addToCart(product, 1);
+        } else {
+            // Fallback to alert if cart manager not loaded
+            alert(`Added ${productName} to cart`);
+        }
     }
 
     // Category filtering functionality
