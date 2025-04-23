@@ -1,17 +1,67 @@
 // Product details data
 const productData = {
-    'chair': {
-        name: 'Elegant Chair',
+    'spoon-chair': {
+        name: 'Spoon Design Chair',
         price: 140.00,
-        image: 'image/product-1.png',
-        description: 'A sophisticated and comfortable chair designed with modern aesthetics and ergonomic support. Perfect for both home and office spaces.',
+        image: 'image/product-1.png', // Update this path to your spoon chair image
+        category: 'chair',
+        description: 'A minimalist chair inspired by spoon design. Perfect for modern homes and creative spaces.',
         rating: 5
     },
-    'cushion-sofa': {
-        name: 'Cozy Cushion Sofa',
+    'bunny-sofa': {
+        name: 'Bunny Cushion Sofa',
         price: 140.00,
-        image: 'image/product-2.png',
-        description: 'A luxurious cushion sofa that blends comfort and style. Crafted with premium materials to provide ultimate relaxation and enhance your living space.',
+        image: 'image/product-2.png', // Update with bunny sofa image
+        category: 'sofa',
+        description: 'A cute and comfortable bunny-shaped cushion sofa, ideal for children\'s rooms and playful spaces.',
+        rating: 5
+    },
+    'coconut-sofa': {
+        name: 'Coconut Cushion Sofa',
+        price: 140.00,
+        image: 'image/product-3.png', // Update with coconut sofa image
+        category: 'sofa',
+        description: 'A natural-inspired coconut design sofa with white cushions, bringing a tropical feel to your living space.',
+        rating: 5
+    },
+    'modern-chair': {
+        name: 'Modern Wooden Chair',
+        price: 140.00,
+        image: 'image/product-4.png', // Update with modern chair image
+        category: 'chair',
+        description: 'A sleek modern chair with wooden frame. Elegant design meets comfort in this contemporary piece.',
+        rating: 5
+    },
+    'bear-sofa': {
+        name: 'Bear Cushion Sofa',
+        price: 140.00, 
+        image: 'image/product-5.png', // Update with bear sofa image
+        category: 'sofa',
+        description: 'A cozy bear-shaped cushion sofa that adds character and warmth to any room. Perfect for children and the young at heart.',
+        rating: 5
+    },
+    'rainbow-chair': {
+        name: 'Rainbow Rocking Chair',
+        price: 140.00,
+        image: 'image/product-6.png', // Update with rainbow chair image
+        category: 'chair',
+        description: 'A playful rainbow-themed rocking chair. Combines comfort with fun design for nurseries and playrooms.',
+        rating: 5
+    },
+    't-handle-chair': {
+        name: 'T-Handle Chair',
+        price: 140.00,
+        image: 'image/product-7.png', // Update with T-handle chair image
+        category: 'chair',
+        description: 'A unique chair with distinctive T-shaped handle. Combines functionality with elegant design.',
+        rating: 5
+    },
+    'pouf-chair': {
+        name: 'Modern Pouf Chair',
+        price: 140.00,
+        image: 'image/product-8.png', // Update with pouf chair image
+        category: 'chair',
+        description: 'A contemporary pouf chair with soft cushioning. Minimal design with maximum comfort for modern spaces.',
         rating: 5
     }
 };

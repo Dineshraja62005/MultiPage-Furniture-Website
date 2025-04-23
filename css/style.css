@@ -1728,4 +1728,13 @@ section {
     margin-left: 0.5rem;
 }
 
+.category .box-container .box.active {
+    background: #5e473e;
+    color: #fff;
+}
+
+.category .box-container .box.active h3 {
+    color: #fff;
+}
+
 /* footer end */

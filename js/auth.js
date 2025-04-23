@@ -1,4 +1,4 @@
-// auth.js - Authentication system for WoodStory with MySQL backend
+// auth.js - Authentication system for WoodStory with PHP backend
 
 // Check session on page load
 function checkSession() {
@@ -21,6 +21,7 @@ function registerUser(name, email, password) {
         headers: {
             'Content-Type': 'application/json',
         },
+        credentials: 'include', // Important for session management
         body: JSON.stringify({ name, email, password })
     })
     .then(response => response.json())
@@ -37,6 +38,7 @@ function loginUser(email, password) {
         headers: {
             'Content-Type': 'application/json',
         },
+        credentials: 'include', // Important for session management
         body: JSON.stringify({ email, password })
     })
     .then(response => response.json())
@@ -55,7 +57,10 @@ function loginUser(email, password) {
 
 // Logout user
 function logoutUser() {
-    return fetch('php/logout.php')
+    return fetch('php/logout.php', {
+        method: 'POST',
+        credentials: 'include' // Important for session management
+    })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -136,10 +141,10 @@ function updateUIOnAuth() {
         }
         
         // Hide login button
-        loginBtn.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'none';
     } else {
         // Reset to login state
-        loginBtn.style.display = 'block';
+        if (loginBtn) loginBtn.style.display = 'block';
         
         // Remove logout button if exists
         if (document.getElementById('logout-btn')) {
