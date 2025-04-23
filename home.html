@@ -114,49 +114,89 @@
 
     <!-- shopping cart end  -->
 
-
 <!-- login form start  -->
 <div class="login-form">
     <div class="form-container">
         <!-- Login Form -->
-        <form id="loginForm" class="active-form">
-            <h3>Login</h3>
-            <div id="loginMessage" class="message"></div>
-            <input type="email" name="email" placeholder="Enter your email" class="box" required>
-            <input type="password" name="password" placeholder="Enter your password" class="box" required>
-            <div class="remember">
-                <input type="checkbox" name="remember" id="remember-me">
-                <label for="remember-me">Remember me</label>
+        <form id="loginForm" class="auth-form active-form">
+            <h3>Login to WoodStory</h3>
+            <div id="loginMessage" class="message auth-message"></div>
+            
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Enter your email" class="box" required>
             </div>
-            <input type="submit" value="Login" class="btn">
-            <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
-            <p>Forgot password? <a href="#" id="showReset">Reset password</a></p>
+            
+            <div class="input-group password-toggle">
+                <input type="password" name="password" placeholder="Enter your password" class="box" required>
+                <span class="toggle-password">Show</span>
+            </div>
+            
+            <div class="remember-container">
+                <div class="remember">
+                    <input type="checkbox" name="remember" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <a href="#" id="showReset" class="forgot-password">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="btn">Login</button>
+            
+            <div class="form-footer">
+                <p>Don't have an account? <a href="#" id="showRegister">Register now</a></p>
+            </div>
         </form>
 
         <!-- Registration Form -->
-        <form id="registerForm" class="hidden-form">
+        <form id="registerForm" class="auth-form hidden-form">
             <h3>Create Account</h3>
-            <div id="registerMessage" class="message"></div>
-            <input type="text" name="name" placeholder="Enter your full name" class="box" required>
-            <input type="email" name="email" placeholder="Enter your email" class="box" required>
-            <input type="password" name="password" placeholder="Create a password" class="box" required>
-            <input type="password" name="confirmPassword" placeholder="Confirm password" class="box" required>
+            <div id="registerMessage" class="message auth-message"></div>
+            
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Enter your full name" class="box" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Enter your email" class="box" required>
+            </div>
+            
+            <div class="input-group password-toggle">
+                <input type="password" name="password" placeholder="Create a password" class="box" required>
+                <span class="toggle-password">Show</span>
+            </div>
+            
+            <div class="input-group password-toggle">
+                <input type="password" name="confirmPassword" placeholder="Confirm password" class="box" required>
+                <span class="toggle-password">Show</span>
+            </div>
+            
             <div class="terms">
                 <input type="checkbox" name="terms" id="terms-agree" required>
                 <label for="terms-agree">I agree to the <a href="#">terms and conditions</a></label>
             </div>
-            <input type="submit" value="Register" class="btn">
-            <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            
+            <button type="submit" class="btn">Register</button>
+            
+            <div class="form-footer">
+                <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </div>
         </form>
 
         <!-- Password Reset Form -->
-        <form id="resetForm" class="hidden-form">
+        <form id="resetForm" class="auth-form hidden-form">
             <h3>Reset Password</h3>
-            <div id="resetMessage" class="message"></div>
+            <div id="resetMessage" class="message auth-message"></div>
+            
             <p class="form-info">Enter your email address to receive password reset instructions.</p>
-            <input type="email" name="resetEmail" placeholder="Enter your email" class="box" required>
-            <input type="submit" value="Reset Password" class="btn">
-            <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
+            
+            <div class="input-group">
+                <input type="email" name="resetEmail" placeholder="Enter your email" class="box" required>
+            </div>
+            
+            <button type="submit" class="btn">Reset Password</button>
+            
+            <div class="form-footer">
+                <p>Remember your password? <a href="#" id="backToLogin">Back to login</a></p>
+            </div>
         </form>
     </div>
 </div>

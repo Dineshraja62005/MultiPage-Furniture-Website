@@ -1,167 +1,205 @@
-// login.js - Handles login form interactions
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Form elements
+// Enhanced Login Form Interactions
+document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
     const resetForm = document.getElementById('resetForm');
     
-    // Message elements
-    const loginMessage = document.getElementById('loginMessage');
-    const registerMessage = document.getElementById('registerMessage');
-    const resetMessage = document.getElementById('resetMessage');
+    const showRegisterLink = document.getElementById('showRegister');
+    const showLoginLink = document.getElementById('showLogin');
+    const showResetLink = document.getElementById('showReset');
+    const backToLoginLink = document.getElementById('backToLogin');
     
-    // Switch between forms
-    document.getElementById('showRegister').addEventListener('click', function(e) {
-        e.preventDefault();
-        loginForm.classList.remove('active-form');
-        loginForm.classList.add('hidden-form');
-        registerForm.classList.remove('hidden-form');
-        registerForm.classList.add('active-form');
-        resetForm.classList.remove('active-form');
-        resetForm.classList.add('hidden-form');
+    const passwordToggles = document.querySelectorAll('.toggle-password');
+
+    // Form Switching
+    function switchForm(showForm, hideForm1, hideForm2) {
+        showForm.classList.remove('hidden-form');
+        hideForm1.classList.add('hidden-form');
+        hideForm2.classList.add('hidden-form');
+    }
+
+    // Event Listeners for Form Switching
+    if (showRegisterLink) {
+        showRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchForm(registerForm, loginForm, resetForm);
+        });
+    }
+
+    if (showLoginLink) {
+        showLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchForm(loginForm, registerForm, resetForm);
+        });
+    }
+
+    if (showResetLink) {
+        showResetLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchForm(resetForm, loginForm, registerForm);
+        });
+    }
+
+    if (backToLoginLink) {
+        backToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchForm(loginForm, resetForm, registerForm);
+        });
+    }
+
+    // Password Visibility Toggle
+    passwordToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const passwordInput = this.previousElementSibling;
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
     });
-    
-    document.getElementById('showLogin').addEventListener('click', function(e) {
-        e.preventDefault();
-        loginForm.classList.remove('hidden-form');
-        loginForm.classList.add('active-form');
-        registerForm.classList.remove('active-form');
-        registerForm.classList.add('hidden-form');
-        resetForm.classList.remove('active-form');
-        resetForm.classList.add('hidden-form');
-    });
-    
-    document.getElementById('showReset').addEventListener('click', function(e) {
-        e.preventDefault();
-        loginForm.classList.remove('active-form');
-        loginForm.classList.add('hidden-form');
-        registerForm.classList.remove('active-form');
-        registerForm.classList.add('hidden-form');
-        resetForm.classList.remove('hidden-form');
-        resetForm.classList.add('active-form');
-    });
-    
-    document.getElementById('backToLogin').addEventListener('click', function(e) {
-        e.preventDefault();
-        loginForm.classList.remove('hidden-form');
-        loginForm.classList.add('active-form');
-        resetForm.classList.remove('active-form');
-        resetForm.classList.add('hidden-form');
-    });
-    
-    // Handle login form submission
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = this.querySelector('input[name="email"]').value;
-        const password = this.querySelector('input[name="password"]').value;
-        
-        // Validate inputs
-        if (!email || !password) {
-            showMessage(loginMessage, 'Please enter both email and password', 'error');
-            return;
-        }
-        
-        // Show loading message
-        showMessage(loginMessage, 'Logging in...', 'info');
-        
-        // Attempt login
-        loginUser(email, password)
-            .then(result => {
-                if (result.success) {
-                    showMessage(loginMessage, result.message, 'success');
-                    
-                    // Close the login form
+
+    // Form Submission Handlers
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageElement = loginForm.querySelector('.auth-message');
+            const emailInput = loginForm.querySelector('input[name="email"]');
+            const passwordInput = loginForm.querySelector('input[name="password"]');
+
+            // Basic validation
+            if (!emailInput.value || !passwordInput.value) {
+                showMessage(messageElement, 'Please fill in all fields', 'error');
+                return;
+            }
+
+            try {
+                const response = await loginUser(emailInput.value, passwordInput.value);
+                
+                if (response.success) {
+                    showMessage(messageElement, 'Login successful', 'success');
+                    // Redirect or update UI after successful login
                     setTimeout(() => {
-                        document.querySelector('#closer').click();
-                        // Reload to update UI
-                        window.location.reload();
-                    }, 1000);
+                        window.location.href = 'home.html';
+                    }, 1500);
                 } else {
-                    showMessage(loginMessage, result.message, 'error');
+                    showMessage(messageElement, response.message, 'error');
                 }
-            });
-    });
-    
-    // Handle registration form submission
-    registerForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = this.querySelector('input[name="name"]').value;
-        const email = this.querySelector('input[name="email"]').value;
-        const password = this.querySelector('input[name="password"]').value;
-        const confirmPassword = this.querySelector('input[name="confirmPassword"]').value;
-        const termsAgreed = this.querySelector('input[name="terms"]').checked;
-        
-        // Validate inputs
-        if (!name || !email || !password || !confirmPassword) {
-            showMessage(registerMessage, 'Please fill in all fields', 'error');
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            showMessage(registerMessage, 'Passwords do not match', 'error');
-            return;
-        }
-        
-        if (!termsAgreed) {
-            showMessage(registerMessage, 'You must agree to the terms and conditions', 'error');
-            return;
-        }
-        
-        // Show loading message
-        showMessage(registerMessage, 'Creating your account...', 'info');
-        
-        // Attempt registration
-        registerUser(name, email, password)
-            .then(result => {
-                if (result.success) {
-                    showMessage(registerMessage, result.message + '. You can now log in.', 'success');
-                    
-                    // Clear form
-                    this.reset();
-                    
-                    // Switch to login form after delay
+            } catch (error) {
+                showMessage(messageElement, 'An error occurred. Please try again.', 'error');
+                console.error('Login error:', error);
+            }
+        });
+    }
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageElement = registerForm.querySelector('.auth-message');
+            const nameInput = registerForm.querySelector('input[name="name"]');
+            const emailInput = registerForm.querySelector('input[name="email"]');
+            const passwordInput = registerForm.querySelector('input[name="password"]');
+            const confirmPasswordInput = registerForm.querySelector('input[name="confirmPassword"]');
+            const termsCheckbox = registerForm.querySelector('input[name="terms"]');
+
+            // Validation
+            if (!nameInput.value || !emailInput.value || !passwordInput.value || !confirmPasswordInput.value) {
+                showMessage(messageElement, 'Please fill in all fields', 'error');
+                return;
+            }
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                showMessage(messageElement, 'Passwords do not match', 'error');
+                return;
+            }
+
+            if (!termsCheckbox.checked) {
+                showMessage(messageElement, 'Please agree to terms and conditions', 'error');
+                return;
+            }
+
+            try {
+                const response = await registerUser(
+                    nameInput.value, 
+                    emailInput.value, 
+                    passwordInput.value
+                );
+                
+                if (response.success) {
+                    showMessage(messageElement, 'Registration successful', 'success');
+                    // Automatically switch to login form
                     setTimeout(() => {
-                        document.getElementById('showLogin').click();
+                        switchForm(loginForm, registerForm, resetForm);
+                        registerForm.reset();
                     }, 2000);
                 } else {
-                    showMessage(registerMessage, result.message, 'error');
+                    showMessage(messageElement, response.message, 'error');
                 }
-            });
-    });
-    
-    // Handle reset password form
-    resetForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = this.querySelector('input[name="resetEmail"]').value;
-        
-        // In a real app, this would call a backend endpoint
-        // For now, just show a message
-        
-        showMessage(resetMessage, 'If your email exists in our system, you will receive reset instructions shortly.', 'success');
-        
-        // Clear form
-        this.reset();
-        
-        // Return to login after delay
-        setTimeout(() => {
-            document.getElementById('backToLogin').click();
-        }, 3000);
-    });
-    
-    // Helper function to show form messages
-    function showMessage(element, message, type) {
-        element.textContent = message;
-        element.className = 'message ' + type;
-        
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
+            } catch (error) {
+                showMessage(messageElement, 'An error occurred. Please try again.', 'error');
+                console.error('Registration error:', error);
+            }
+        });
+    }
+
+    if (resetForm) {
+        resetForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageElement = resetForm.querySelector('.auth-message');
+            const emailInput = resetForm.querySelector('input[name="resetEmail"]');
+
+            // Basic validation
+            if (!emailInput.value) {
+                showMessage(messageElement, 'Please enter your email', 'error');
+                return;
+            }
+
+            // Placeholder for password reset logic
+            showMessage(messageElement, 'Password reset instructions sent', 'success');
+            
+            // In a real app, this would call a backend password reset endpoint
             setTimeout(() => {
-                element.style.display = 'none';
-            }, 5000);
-        }
+                switchForm(loginForm, resetForm, registerForm);
+                resetForm.reset();
+            }, 2000);
+        });
+    }
+
+    // Helper function to show messages
+    function showMessage(element, message, type) {
+        if (!element) return;
+        element.textContent = message;
+        element.className = `auth-message ${type}`;
     }
 });
+
+// Authentication API calls (these should match your existing PHP backend)
+async function loginUser(email, password) {
+    try {
+        const response = await fetch('php/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Login fetch error:', error);
+        throw error;
+    }
+}
+
+async function registerUser(name, email, password) {
+    try {
+        const response = await fetch('php/register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, password })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Registration fetch error:', error);
+        throw error;
+    }
+}
